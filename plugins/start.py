@@ -90,17 +90,18 @@ async def send_doc(client,message):
        		reply_markup = InlineKeyboardMarkup(
        		[ [ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url=f"https://t.me/{update_channel}") ]   ]))
        		return
-        try:
-	    bot_data = find_one(int(botid))
-            prrename = bot_data['total_rename']
-            prsize = bot_data['total_size']
-            user_deta = find_one(user_id)
-	except:
+       try:
+	   bot_data = find_one(int(botid))
+           prrename = bot_data['total_rename']
+           prsize = bot_data['total_size']
+           user_deta = find_one(user_id)
+       except:
 	    await message.reply_text("Kullanmadan önce Hakkında konusunu okuyun /hakkında")
        try:
        	used_date = user_deta["date"]
        	buy_date= user_deta["prexdate"]
        	daily = user_deta["daily"]
+	user_type = user_deta["usertype"]
        except:
            await message.reply_text("veritabanı temizlendi /start'a tıklayın")
            return
