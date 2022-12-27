@@ -95,6 +95,8 @@ async def send_doc(client,message):
             prrename = bot_data['total_rename']
             prsize = bot_data['total_size']
             user_deta = find_one(user_id)
+	except:
+	    await message.reply_text("Kullanmadan önce Hakkında konusunu okuyun /hakkında")
        try:
        	used_date = user_deta["date"]
        	buy_date= user_deta["prexdate"]
