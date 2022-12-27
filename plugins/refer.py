@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import ( InlineKeyboardButton, InlineKeyboardMarkup,ForceReply)
-@Client.on_message(filters.private & filters.command(["refer"]))
+@Client.on_message(filters.private & filters.command(["referans"]))
 async def refer(client,message):
     reply_markup = InlineKeyboardMarkup(
        		[ [ InlineKeyboardButton("Bağlantınızı Paylaşın" ,url=f"https://t.me/share/url?url=https://t.me/dwrenamer_bot?start={message.from_user.id}") ]   ])
