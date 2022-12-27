@@ -9,7 +9,7 @@ from datetime import date as date_
 from helper.progress import humanbytes
 
 
-@Client.on_message(filters.private & filters.command(["myplan"]))
+@Client.on_message(filters.private & filters.command(["planım"]))
 async def start(client,message):
 	used_ = find_one(message.from_user.id)	
 	daily = used_["daily"]
