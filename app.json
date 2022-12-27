@@ -1,0 +1,116 @@
+
+{
+
+    "name": "D/W Renamer Bot",
+
+    "description": "Telegram Dosyalarını yeniden düzenlemek ve Adlandırmak için Renamer Bot ",
+
+    "keywords": [
+
+        "Renamer ",
+
+        "4GB File",
+
+        "telegram"
+
+    ],
+
+    "repository": "https://github.com/lntechnical2/RENAMER_BOT_V3",
+
+    "success_url": "https://t.me/dwstoree",
+
+    "env": {
+
+        "CHANNEL": {
+
+            "description": "Kanal veya Grup kullanıcı Adı @ ile",
+
+            "required":true
+
+            
+
+         },
+
+        "STRING": {
+
+            "description": "Pyrogram Dizisi Oturumu @genStr_Bot Kullanın",
+
+            "required": true
+
+        },
+
+        "API_ID": {
+
+            "description": "API Kimliğiniz my.telegram.org'dan alın",
+
+            "required": true
+
+        },
+
+        "API_HASH": {
+
+            "description": "API HASH my.telegram.org'dan alın ",
+
+            "required": true
+
+        },
+
+        "TOKEN": {
+
+            "description": "@BotFather'dan Bot tokeninizi alın",
+
+            "required": true
+
+        },
+
+        "ADMIN": {
+
+            "description":"Kullanıcı Kimliğinizi Ekleyin",
+
+            "required": true
+
+        },
+
+        "DB_URL":{
+
+             "description":"Database Url Mongo DB'den Alın"
+
+        },
+
+        "DB_NAME":{
+
+               "description":"Database ismi ",
+
+               "required":true
+
+        },
+
+        "LOG_CHANNEL":{
+
+             "description":"Kanal Kimliği Nedd Mağaza Dosyaları Kanal kimliğinizi Rose @MissRose_bot'tan alın",
+
+             "required": true
+
+        }
+
+        
+
+    },
+
+    "buildpacks": [
+
+      {
+
+        "url": "https://github.com/hoqk4baz/heroku-buildpack"
+
+      },
+
+      {
+
+        "url": "heroku/python"
+
+      }
+
+    ]
+
+}
