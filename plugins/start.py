@@ -90,11 +90,11 @@ async def send_doc(client,message):
        		reply_markup = InlineKeyboardMarkup(
        		[ [ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url=f"https://t.me/{update_channel}") ]   ]))
        		return
-       
-       bot_data = find_one(int(botid))
-       prrename = bot_data['total_rename']
-       prsize = bot_data['total_size']
-       user_deta = find_one(user_id)
+        try:
+	    bot_data = find_one(int(botid))
+            prrename = bot_data['total_rename']
+            prsize = bot_data['total_size']
+            user_deta = find_one(user_id)
        try:
        	used_date = user_deta["date"]
        	buy_date= user_deta["prexdate"]
