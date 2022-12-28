@@ -46,5 +46,5 @@ async def upgradecm(bot,message):
 	
         Satın Almak için Aşağıdan iletişime Geç"""
 	keybord = InlineKeyboardMarkup([[ 
-        			InlineKeyboardButton("ADMIN 🛂",url = "https://t.me/mrlokaman")],[InlineKeyboardButton("Cancel",callback_data = "cancel")  ]])
+        			InlineKeyboardButton("ADMIN 🛂",url = "https://t.me/dark_enza")],[InlineKeyboardButton("Vazgeç",callback_data = "cancel")  ]])
 	await message.reply_text(text = text,reply_markup = keybord)
