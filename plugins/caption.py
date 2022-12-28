@@ -5,7 +5,7 @@ from helper.database import *
 @Client.on_message(filters.private & filters.command('aciklama_ekle'))
 async def add_caption(client, message):
     if len(message.command) == 1:
-       return await message.reply_text("**Ayarlamam için bana bir açıklama ver.\n\nÖrnek:- `/dosya_ismi DW Store`**")
+       return await message.reply_text("**Ayarlamam için bana bir açıklama ver.\n\nÖrnek:- `/aciklama_ekle DW Store`**")
     caption = message.text.split(" ", 1)[1]
     addcaption(int(message.chat.id), caption)
     await message.reply_text("**Dosya açıklaması başarıyla düzenlendi ✅**")
