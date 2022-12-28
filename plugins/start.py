@@ -26,7 +26,7 @@ if currentTime.hour < 12:
 elif 12 <= currentTime.hour < 12:
 	wish = 'Tünaydın.'
 else:
-	wish = 'İyi Akşamlar.'
+	wish = 'İyi akşamlar.'
 
 #-------------------------------
 
@@ -42,7 +42,7 @@ async def start(client,message):
 	**Belge veya Video** ilet veya gönder\nArdından Yeniden adlandırmak için Dosya ismi girin__
 	""",reply_to_message_id = message.id ,  
 	reply_markup=InlineKeyboardMarkup(
-	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstoree") ], 
+	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstore") ], 
 	[InlineKeyboardButton("YAPIMCI", url="https://t.me/dark_enza") ]  ]))
 	    return
 	if id:
@@ -50,12 +50,12 @@ async def start(client,message):
 	        try:
 	            await client.send_message(id,"Arkadaşınız Zaten Botumuzu Kullanıyor")
 	            await message.reply_text(text =f"""
-	Selam  {wish} {message.from_user.first_name }
+	Selam {wish} {message.from_user.first_name }
 	__Ben Dosyaları Yeniden Adlandırmaya Yarayan Botum\n 
 	**Belge veya Video** ilet veya gönder\nArdından Yeniden adlandırmak için Dosya ismi girin__
 	""",reply_to_message_id = message.id ,  
 	reply_markup=InlineKeyboardMarkup(
-	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstoree") ], 
+	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstore") ], 
 	[InlineKeyboardButton("YAPIMCI", url="https://t.me/dark_enza") ]  ]))
 	        except:
 	             return
@@ -71,7 +71,7 @@ async def start(client,message):
 	**Belge veya Video** ilet veya gönder\nArdından Yeniden adlandırmak için Dosya ismi girin__
 	""",reply_to_message_id = message.id ,  
 	reply_markup=InlineKeyboardMarkup(
-	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstoree") ], 
+	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstore") ], 
 	[InlineKeyboardButton("YAPIMCI", url="https://t.me/dark_enza") ]  ]))
 	         
 
@@ -88,20 +88,20 @@ async def send_doc(client,message):
        		await message.reply_text("**__kanalıma abone değilsin__** ",
        		reply_to_message_id = message.id,
        		reply_markup = InlineKeyboardMarkup(
-       		[ [ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url=f"https://t.me/{update_channel}") ]   ]))
+       		[ [ InlineKeyboardButton("KANALIMIZ" ,url=f"https://t.me/{update_channel}") ]   ]))
        		return
        try:
-	   bot_data = find_one(int(botid))
+           bot_data = find_one(int(botid))
            prrename = bot_data['total_rename']
            prsize = bot_data['total_size']
            user_deta = find_one(user_id)
        except:
-	    await message.reply_text("Kullanmadan önce Hakkında konusunu okuyun /hakkında")
+           await message.reply_text("Kullanmadan önce Hakkında konusunu okuyun /hakkında")
        try:
        	used_date = user_deta["date"]
        	buy_date= user_deta["prexdate"]
        	daily = user_deta["daily"]
-	user_type = user_deta["usertype"]
+       	user_type = user_deta["usertype"]
        except:
            await message.reply_text("veritabanı temizlendi /start'a tıklayın")
            return
@@ -109,8 +109,8 @@ async def send_doc(client,message):
            
        c_time = time.time()
        
-       if buy_date==None:
-           LIMIT = 350
+       if user_type=="Free":
+           LIMIT = 600
        else:
            LIMIT = 50
        then = used_date+ LIMIT
@@ -121,8 +121,7 @@ async def send_doc(client,message):
        	await message.reply_text(f"```Üzgünüm Dostum, sadece SENİN için değilim \n Floadwait aktif, bu yüzden lütfen bekleyin {ltime}```",reply_to_message_id = message.id)
        else:
        		# Forward a single message
-       		await client.forward_messages(log_channel, message.from_user.id, message.id)
-       		await client.send_message(log_channel,f"Kullanıcı Id :- {user_id}")       		
+           		
        		media = await client.get_messages(message.chat.id,message.id)
        		file = media.document or media.video or media.audio 
        		dcid = FileId.decode(file.file_id).dc_id
@@ -140,7 +139,7 @@ async def send_doc(client,message):
        			used_limit(message.from_user.id,0)			     		
        		remain = limit- used
        		if remain < int(file.file_size):
-       		    await message.reply_text(f"Afedersiniz! Şundan daha büyük dosyaları yükleyemiyorum: {humanbytes(limit)}. Dosya boyutu algılandı {humanbytes(file.file_size)}\nKullanılan Günlük Limit {humanbytes(used)} Büyük Dosyayı Yeniden Adlandırmak İstiyorsanız Planınızı Yükseltin ",reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("PLAN YÜKSELT 💰💳",callback_data = "upgrade") ]]))
+       		    await message.reply_text(f"Afedersiniz! Şundan daha büyük dosyaları yükleyemiyorum {humanbytes(limit)}. Dosya boyutu algılandı {humanbytes(file.file_size)}\nBugün Kullanılan: {humanbytes(used)} Büyük Dosyayı Yeniden Adlandırmak İstiyorsanız Planınızı Yükseltin ",reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("PLAN YÜKSELT 💰💳",callback_data = "upgrade") ]]))
        		    return
        		if value < file.file_size:
        		    if STRING:
@@ -153,12 +152,21 @@ async def send_doc(client,message):
        		            total_rename(int(botid),prrename)
        		            total_size(int(botid),prsize,file.file_size)
        		        else:
+       		            uploadlimit(message.from_user.id,2147483648)
+       		            usertype(message.from_user.id,"ÜCRETSİZ Kullanıcı")
+	
        		            await message.reply_text(f'PLANINIZIN DOLMASINA KALAN {buy_date}',quote=True)
        		            return
        		    else:
-       		          	await message.reply_text("2GB'tan büyük dosyalar yüklenemez ")
+       		          	await message.reply_text("ÜCRETSİZ Kullanıcılar 2GB'tan büyük dosyalar yüklenemez ")
        		          	return
        		else:
+       		    if buy_date:
+       		        pre_check = check_expi(buy_date)
+       		        if pre_check == False:
+       		            uploadlimit(message.from_user.id,2147483648)
+       		            usertype(message.from_user.id,"ÜCRETSİZ Kullanıcı")
+       		        
        		    filesize = humanize.naturalsize(file.file_size)
        		    fileid = file.file_id
        		    total_rename(int(botid),prrename)
