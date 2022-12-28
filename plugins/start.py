@@ -42,7 +42,7 @@ async def start(client,message):
 	**Belge veya Video** ilet veya gönder\nArdından Yeniden adlandırmak için Dosya ismi girin__
 	""",reply_to_message_id = message.id ,  
 	reply_markup=InlineKeyboardMarkup(
-	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstore") ], 
+	 [[ InlineKeyboardButton("BOT SAHİBİ KANAL" ,url="https://t.me/dwstoree") ], 
 	[InlineKeyboardButton("YAPIMCI", url="https://t.me/dark_enza") ]  ]))
 	    return
 	if id:
